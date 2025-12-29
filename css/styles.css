@@ -75,14 +75,40 @@ nav a:hover::after {
 }
 
 .hero h1 {
-    color: black;
-    font-size: 2rem; 
-    position: relative;
-    z-index: 2; 
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
 }
 
-.hero h1 {
-    animation: glow 2s ease-in-out infinite;
+@keyframes glowing {
+  0% {
+    text-shadow: 
+      0 0 10px #fff,
+      0 0 20px #0ff,
+      0 0 30px #0ff,
+      0 0 40px #00f;
+  }
+  50% {
+    text-shadow: 
+      0 0 20px #fff,
+      0 0 30px #f0f,
+      0 0 40px #f0f,
+      0 0 50px #f05;
+  }
+  100% {
+    text-shadow: 
+      0 0 10px #fff,
+      0 0 20px #0ff,
+      0 0 30px #0ff,
+      0 0 40px #00f;
+  }
+}
+
+.glowing {
+  animation: glowing 3s infinite alternate;
 }
 
 /* Портфолио */
@@ -433,4 +459,18 @@ header, main, footer {
     text-align: center;
     cursor: pointer;
     z-index: 1001;
+}
+
+.glowing {
+    font-size: 2rem;
+    animation: glowing 2s linear infinite alternate;
+}
+
+@keyframes glowing {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
 }
