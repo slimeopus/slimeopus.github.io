@@ -1,3 +1,13 @@
+/* Основные стили */
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: white;
+    --accent-color: #8a2be2;
+    --accent-secondary: #00ffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
 /* Стилизация шапки */
 header {
     background: #222;
@@ -64,51 +74,147 @@ nav a:hover::after {
 
 /* Геройский раздел */
 .hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a2a, #2a2a4a);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    padding: 2rem;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-avatar-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 5rem;
 }
 
-.hero img {
+.hero-avatar-center img {
     width: 200px;
+    height: 200px;
     border-radius: 50%;
-    margin-bottom: 2rem;
+    object-fit: cover;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 1rem;
 }
 
-.hero h1 {
-  color: white;
-  font-size: 2.5rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-  letter-spacing: 2px;
-  position: relative;
-  z-index: 2;
+/* Сетка Бенто */
+.bento-grid {
+    min-height: 50vh;
+    display: grid;
+    grid-template-areas:
+        "about about stack"
+        "about about stack"
+        "stats stats contacts";
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-@keyframes glowing {
-  0% {
-    text-shadow: 
-      0 0 10px #fff,
-      0 0 20px #0ff,
-      0 0 30px #0ff,
-      0 0 40px #00f;
-  }
-  50% {
-    text-shadow: 
-      0 0 20px #fff,
-      0 0 30px #f0f,
-      0 0 40px #f0f,
-      0 0 50px #f05;
-  }
-  100% {
-    text-shadow: 
-      0 0 10px #fff,
-      0 0 20px #0ff,
-      0 0 30px #0ff,
-      0 0 40px #00f;
-  }
+.bento-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glowing {
-  animation: glowing 3s infinite alternate;
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.bento-item h3 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.bento-item p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Карточка Стек */
+.tech-icons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.tech-icon {
+    background: rgba(138, 43, 226, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(138, 43, 226, 0.5);
+}
+
+.tech-icon:hover {
+    background: rgba(138, 43, 226, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Карточка Контакты */
+.contact-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon:hover {
+    box-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+    transform: scale(1.1);
+}
+
+.contact-icon.tg:hover {
+    box-shadow: 0 0 20px #0088cc, 0 0 30px #0088cc;
+}
+
+.contact-icon.github:hover {
+    box-shadow: 0 0 20px #6e5494, 0 0 30px #6e5494;
+}
+
+.contact-icon.email:hover {
+    box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
 }
 
 /* Портфолио */
@@ -357,6 +463,7 @@ body {
     color: #333;
     min-height: 100vh;
     position: relative;
+    background-color: #0a0a0a;
 }
 
 /* Фоновое изображение */
@@ -461,7 +568,7 @@ header, main, footer {
     z-index: 1001;
 }
 
-.glowing {
+glowing {
     font-size: 2rem;
     animation: glowing 2s linear infinite alternate;
 }
