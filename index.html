@@ -8,7 +8,7 @@
     script-src 'self' 'unsafe-inline';
     frame-src 'self' https://docs.google.com ;
     frame-ancestors 'self' https://docs.google.com ;
-    img-src 'self' data:;
+    img-src 'self' data: https://github-readme-stats.vercel.app https://cdn.jsdelivr.net;
     style-src 'self' 'unsafe-inline';
     connect-src 'self'
 ">
@@ -17,9 +17,7 @@
     <link rel="icon" type="image/png" href="img/myicon.png">
 </head>
 <body>
-    <div class="background-image">
-        <img src="img/background.jpg" alt="Фон">
-    </div>
+
     <!-- Шапка -->
     <header>
         <!-- Логотип/иконка -->
@@ -27,21 +25,50 @@
             <img src="img/myicon.png" alt="Логотип" class="logo">
         </a>
         <nav>
-            <a href="index.html#home">Главная</a>
-            <a href="about.html#about">О себе</a>
-            <a href="portfolio.html#portfolio">Мои проекты</a>
-            <a href="contact.html#contact">Контакты</a>
         </nav>
     </header>
 
     <!-- Главный раздел -->
     <section id="home">
         <div class="hero">
-            <img src="img/avatar.png" alt="Ваш аватар" class="pulse">
-            <h1 class="glowing">slimeopus</h1>
+            <div class="hero-avatar-center">
+                <img src="img/myicon.png" alt="3D-аватар" class="glassmorphism">
+            </div>
+        </div>
+    </section>
+
+    <!-- Сетка Бенто -->
+    <div class="bento-grid">
+        <div class="bento-item about" style="grid-area: about">
+            <h3>Обо мне</h3>
+            <p>Я slimeopus, Python-разработчик.
+Мой путь в коде начался с бумом нейросетей, поэтому я с первого дня использую возможности ИИ, чтобы писать код быстрее и чище. Для меня программирование — это не просто строки в редакторе, а мощный инструмент для решения задач любой сложности.
+В работе я за баланс: одинаково ценю и архитектурную красоту, и реальную пользу для продукта. Всегда открыт к новым вызовам и сложным проектам, о которых (к сожалению или к счастью) не всегда можно рассказывать. Всегда рад пообщаться о технологиях или обсудить свежий проект.</p>
+        </div>
+        <div class="bento-item stack" style="grid-area: stack">
+            <h3>Стек</h3>
+            <div class="tech-icons">
+                <span class="tech-icon">Electron</span>
+                <span class="tech-icon">Python</span>
+                <span class="tech-icon">HTML</span>
+            </div>
+        </div>
+        <div class="bento-item github-stats" style="grid-area: stats">
+            <h3>GitHub Stats</h3>
+            <img src="https://github-readme-stats.vercel.app/api?username=slimeopus&show_icons=true&theme=radical" alt="GitHub Stats">
+        </div>
+        <div class="bento-item contacts" style="grid-area: contacts">
+            <h3>Контакты</h3>
+            <div class="contact-icons">
+                <a href="https://github.com/slimeopus" class="contact-icon github" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" width="30" height="30">
+                </a>
+                <a href="mailto:slimeopusdev@tutamail.com" class="contact-icon email">📧</a>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>© 2026 slimeopus</p>
     </footer>
 </body>
 </html>
