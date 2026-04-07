@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'unsafe-inline';
-    frame-src 'self' https://docs.google.com ;
-    frame-ancestors 'self' https://docs.google.com ;
-    img-src 'self' data: https://github-readme-stats.vercel.app https://cdn.jsdelivr.net;
+    script-src 'self' 'unsafe-inline' https://mc.yandex.ru;
+    frame-src 'self' https://docs.google.com https://forms.yandex.ru https://mc.yandex.ru;
+    frame-ancestors 'self' https://docs.google.com https://forms.yandex.ru;
+    img-src 'self' data: https://github-readme-stats.vercel.app https://cdn.jsdelivr.net https://mc.yandex.ru https://yastatic.net;
     style-src 'self' 'unsafe-inline';
-    connect-src 'self'
+    connect-src 'self' https://mc.yandex.ru https://forms.yandex.ru;
+    font-src 'self' https://yastatic.net;
 ">
     <title>slimeopus</title>
     <link rel="stylesheet" href="css/styles.css">
@@ -26,6 +27,17 @@
         </a>
         <nav>
         </nav>
+        <!-- Кнопка обратной связи -->
+        <button class="btn" id="feedbackBtn">
+        <strong>ОБРАТНАЯ СВЯЗЬ</strong>
+        <div id="container-stars">
+        <div id="stars"></div>
+        </div>
+        <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        </div>
+        </button>
     </header>
 
     <!-- Главный раздел -->
@@ -41,7 +53,7 @@
     <div class="bento-grid">
         <div class="bento-item about" style="grid-area: about">
             <h3>Обо мне</h3>
-            <p>Я slimeopus, разработчик.
+            <p>Я slimeopus, Python-разработчик.
 Мой путь в коде начался с бумом нейросетей, поэтому я с первого дня использую возможности ИИ, чтобы писать код быстрее и чище. Для меня программирование — это не просто строки в редакторе, а мощный инструмент для решения задач любой сложности.
 В работе я за баланс: одинаково ценю и архитектурную красоту, и реальную пользу для продукта. Всегда открыт к новым вызовам и сложным проектам, о которых (к сожалению или к счастью) не всегда можно рассказывать. Всегда рад пообщаться о технологиях или обсудить свежий проект.</p>
         </div>
@@ -70,5 +82,50 @@
 
     <footer>
     </footer>
+    <!-- Модальное окно с формой -->
+    <div class="iframe-container" id="feedbackForm">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <div class="iframe-scroll-wrapper">
+            <iframe 
+                src="https://forms.yandex.ru/u/69d515d5f47e739ef768c819?iframe=1" 
+                frameborder="0" 
+                name="ya-form-69d515d5f47e739ef768c819" 
+                width="100%" 
+                height="600">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+    // Автоматическая подстройка высоты iframe под содержимое формы
+    window.addEventListener('message', function (event) {
+    const iframe = document.querySelector('#feedbackForm iframe');
+    if (event.data && event.data.type === 'yandex-forms-height') {
+      iframe.style.height = event.data.height + 'px';
+    }
+    });
+    </script>
+
+    <!-- Подключаем скрипт -->
+    <script>
+    const btn = document.getElementById('feedbackBtn');
+    const modal = document.getElementById('feedbackForm');
+    const close = document.getElementById('closeBtn');
+
+    btn.addEventListener('click', () => {
+    modal.classList.add('active');
+    });
+
+    close.addEventListener('click', () => {
+    modal.classList.remove('active');
+    });
+
+    // Закрытие по клику на затемнённый фон
+    modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+    });
+</script>
 </body>
 </html>
