@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
     default-src 'self';
     script-src 'self' 'unsafe-inline' https://mc.yandex.ru;
     frame-src 'self' https://docs.google.com https://forms.yandex.ru https://mc.yandex.ru;
@@ -12,120 +14,169 @@
     style-src 'self' 'unsafe-inline';
     connect-src 'self' https://mc.yandex.ru https://forms.yandex.ru;
     font-src 'self' https://yastatic.net;
-">
-    <title>slimeopus</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="img/myicon.png">
-</head>
-<body>
+"
+        />
+        <title>slimeopus</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="icon" type="image/png" href="img/myicon.png" />
+    </head>
+    <body>
+        <!-- Шапка -->
+        <header>
+            <!-- Логотип/иконка -->
+            <a href="index.html" class="logo-link">
+                <img src="img/myicon.png" alt="Логотип" class="logo" />
+            </a>
+            <nav></nav>
+            <!-- Кнопка обратной связи -->
+            <button class="btn" id="feedbackBtn">
+                <strong>ОБРАТНАЯ СВЯЗЬ</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </header>
 
-    <!-- Шапка -->
-    <header>
-        <!-- Логотип/иконка -->
-        <a href="index.html" class="logo-link">
-            <img src="img/myicon.png" alt="Логотип" class="logo">
-        </a>
-        <nav>
-        </nav>
-        <!-- Кнопка обратной связи -->
-        <button class="btn" id="feedbackBtn">
-        <strong>ОБРАТНАЯ СВЯЗЬ</strong>
-        <div id="container-stars">
-        <div id="stars"></div>
-        </div>
-        <div id="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        </div>
-        </button>
-    </header>
+        <!-- Главный раздел -->
+        <section id="home">
+            <div class="hero">
+                <div class="hero-avatar-center">
+                    <img
+                        src="img/myicon.png"
+                        alt="3D-аватар"
+                        class="glassmorphism"
+                    />
+                </div>
+            </div>
+        </section>
 
-    <!-- Главный раздел -->
-    <section id="home">
-        <div class="hero">
-            <div class="hero-avatar-center">
-                <img src="img/myicon.png" alt="3D-аватар" class="glassmorphism">
+        <!-- Сетка Бенто -->
+        <div class="bento-grid">
+            <div class="bento-item about" style="grid-area: about">
+                <h3>Обо мне</h3>
+                <p>
+                    Я slimeopus, Python-разработчик. Мой путь в коде начался с
+                    бумом нейросетей, поэтому я с первого дня использую
+                    возможности ИИ, чтобы писать код быстрее и чище. Для меня
+                    программирование — это не просто строки в редакторе, а
+                    мощный инструмент для решения задач любой сложности. В
+                    работе я за баланс: одинаково ценю и архитектурную красоту,
+                    и реальную пользу для продукта. Всегда открыт к новым
+                    вызовам и сложным проектам, о которых (к сожалению или к
+                    счастью) не всегда можно рассказывать. Всегда рад пообщаться
+                    о технологиях или обсудить свежий проект.
+                </p>
+            </div>
+            <div class="bento-item stack" style="grid-area: stack">
+                <h3>Стек</h3>
+                <div class="tech-icons">
+                    <span class="tech-icon">Electron</span>
+                    <span class="tech-icon">Python</span>
+                    <span class="tech-icon">HTML</span>
+                </div>
+            </div>
+            <div class="bento-item github-stats" style="grid-area: stats">
+                <h3>GitHub Stats</h3>
+                <img
+                    src="https://github-readme-stats.vercel.app/api?username=slimeopus&show_icons=true&theme=radical"
+                    alt="GitHub Stats"
+                />
+            </div>
+            <div class="bento-item contacts" style="grid-area: contacts">
+                <h3>Контакты</h3>
+                <div class="contact-icons">
+                    <a
+                        href="https://github.com/slimeopus"
+                        class="contact-icon github"
+                        target="_blank"
+                    >
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                            alt="GitHub"
+                            width="30"
+                            height="30"
+                        />
+                    </a>
+                    <a
+                        href="mailto:slimeopusdev@tutamail.com"
+                        class="contact-icon email"
+                        >📧</a
+                    >
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Сетка Бенто -->
-    <div class="bento-grid">
-        <div class="bento-item about" style="grid-area: about">
-            <h3>Обо мне</h3>
-            <p>Я slimeopus, Python-разработчик.
-Мой путь в коде начался с бумом нейросетей, поэтому я с первого дня использую возможности ИИ, чтобы писать код быстрее и чище. Для меня программирование — это не просто строки в редакторе, а мощный инструмент для решения задач любой сложности.
-В работе я за баланс: одинаково ценю и архитектурную красоту, и реальную пользу для продукта. Всегда открыт к новым вызовам и сложным проектам, о которых (к сожалению или к счастью) не всегда можно рассказывать. Всегда рад пообщаться о технологиях или обсудить свежий проект.</p>
-        </div>
-        <div class="bento-item stack" style="grid-area: stack">
-            <h3>Стек</h3>
-            <div class="tech-icons">
-                <span class="tech-icon">Electron</span>
-                <span class="tech-icon">Python</span>
-                <span class="tech-icon">HTML</span>
+        <footer></footer>
+        <!-- Модальное окно с формой -->
+        <div class="iframe-container" id="feedbackForm">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <div class="iframe-scroll-wrapper">
+                <iframe
+                    src="https://forms.yandex.ru/u/69d515d5f47e739ef768c819?iframe=1"
+                    frameborder="0"
+                    name="ya-form-69d515d5f47e739ef768c819"
+                    width="100%"
+                    height="1500"
+                    scrolling="yes"
+                    allowfullscreen
+                >
+                </iframe>
             </div>
         </div>
-        <div class="bento-item github-stats" style="grid-area: stats">
-            <h3>GitHub Stats</h3>
-            <img src="https://github-readme-stats.vercel.app/api?username=slimeopus&show_icons=true&theme=radical" alt="GitHub Stats">
-        </div>
-        <div class="bento-item contacts" style="grid-area: contacts">
-            <h3>Контакты</h3>
-            <div class="contact-icons">
-                <a href="https://github.com/slimeopus" class="contact-icon github" target="_blank">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" width="30" height="30">
-                </a>
-                <a href="mailto:slimeopusdev@tutamail.com" class="contact-icon email">📧</a>
-            </div>
-        </div>
-    </div>
 
-    <footer>
-    </footer>
-    <!-- Модальное окно с формой -->
-    <div class="iframe-container" id="feedbackForm">
-        <button class="close-btn" id="closeBtn">&times;</button>
-        <div class="iframe-scroll-wrapper">
-            <iframe 
-                src="https://forms.yandex.ru/u/69d515d5f47e739ef768c819?iframe=1" 
-                frameborder="0" 
-                name="ya-form-69d515d5f47e739ef768c819" 
-                width="100%" 
-                height="600">
-            </iframe>
-        </div>
-    </div>
+        <!-- Подключаем скрипт -->
+        <script>
+            const btn = document.getElementById("feedbackBtn");
+            const modal = document.getElementById("feedbackForm");
+            const close = document.getElementById("closeBtn");
+            const iframe = document.querySelector(
+                ".iframe-scroll-wrapper iframe",
+            );
+            const scrollWrapper = document.querySelector(
+                ".iframe-scroll-wrapper",
+            );
 
-    <script>
-    // Автоматическая подстройка высоты iframe под содержимое формы
-    window.addEventListener('message', function (event) {
-    const iframe = document.querySelector('#feedbackForm iframe');
-    if (event.data && event.data.type === 'yandex-forms-height') {
-      iframe.style.height = event.data.height + 'px';
-    }
-    });
-    </script>
+            btn.addEventListener("click", () => {
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+                // Сбрасываем прокрутку при открытии
+                scrollWrapper.scrollTop = 0;
+            });
 
-    <!-- Подключаем скрипт -->
-    <script>
-    const btn = document.getElementById('feedbackBtn');
-    const modal = document.getElementById('feedbackForm');
-    const close = document.getElementById('closeBtn');
+            close.addEventListener("click", () => {
+                modal.classList.remove("active");
+                document.body.style.overflow = "";
+            });
 
-    btn.addEventListener('click', () => {
-    modal.classList.add('active');
-    });
+            // Закрытие по клику на затемнённый фон
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove("active");
+                    document.body.style.overflow = "";
+                }
+            });
 
-    close.addEventListener('click', () => {
-    modal.classList.remove('active');
-    });
+            // Автоматическая подстройка высоты iframe
+            window.addEventListener("message", (event) => {
+                if (event.origin.includes("forms.yandex.ru")) {
+                    const height = event.data?.height || event.data;
+                    if (height && typeof height === "number") {
+                        iframe.style.height = Math.max(height, 1200) + "px";
+                    }
+                }
+            });
 
-    // Закрытие по клику на затемнённый фон
-    modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-    }
-    });
-</script>
-</body>
+            // Закрытие по Escape
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && modal.classList.contains("active")) {
+                    modal.classList.remove("active");
+                    document.body.style.overflow = "";
+                }
+            });
+        </script>
+    </body>
 </html>
